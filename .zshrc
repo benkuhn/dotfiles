@@ -46,16 +46,21 @@ gitpushbranch () {
     git checkout master && git fetch && git pull && git merge $BRANCH --ff-only && git push origin master
 }
 
+# help determine whether commands work
+exists () {
+    type $* > /dev/null
+}
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm use 1.9.2 > /dev/null
+exists rvm && rvm use 1.9.2 > /dev/null
 # configure OPAM
-eval `opam config env`
+exists opam && eval `opam config env`
 
 # hooks to time long running functions and notify me when they're done
 BK_LAST_TIME=`date +%s`
 BK_LAST_COMMAND=""
-focused () {
+not_focused () {
     if [[ $( xprop -root 32i _NET_ACTIVE_WINDOW | sed 's/.*# //') == $WINDOWID ]]; then
         return 1;
     else
@@ -66,9 +71,8 @@ preexec () {
     BK_LAST_COMMAND="$1"
     BK_LAST_TIME=`date +%s`
 }
-# TODO refactor the conditional
 precmd () {
-    if [[ $((`date +%s` - BK_LAST_TIME)) > 1 && $BK_LAST_COMMAND != "" && $( xprop -root 32i _NET_ACTIVE_WINDOW | sed 's/.*# //') != $WINDOWID ]]; then
+    if not_focused && [[ $((`date +%s` - BK_LAST_TIME)) > 1 && $BK_LAST_COMMAND != "" ]]; then
         notify-send "Command finished" "$BK_LAST_COMMAND"
         BK_LAST_COMMAND=""
     fi
@@ -76,14 +80,16 @@ precmd () {
 
 # integrate ZLE kill buffer with clipboard
 # TODO integrate C-w, M-d, etc.
-kill-line() { zle .kill-line ; echo -n $CUTBUFFER | pbcopy }
-zle -N kill-line # bound on C-k
+if exists pbcopy; then
+    kill-line() { zle .kill-line ; echo -n $CUTBUFFER | pbcopy }
+    zle -N kill-line # bound on C-k
 
-backward-kill-word() { zle .backward-kill-word ; echo -n $CUTBUFFER | pbcopy }
-zle -N backward-kill-word # bound on C-k
+    backward-kill-word() { zle .backward-kill-word ; echo -n $CUTBUFFER | pbcopy }
+    zle -N backward-kill-word # bound on C-k
 
-yank() { LBUFFER=$LBUFFER$(pbpaste) }
-zle -N yank # bound on C-y
+    yank() { LBUFFER=$LBUFFER$(pbpaste) }
+    zle -N yank # bound on C-y
+fi
 
 alr () {
     # get rid of any other venv if necessary
