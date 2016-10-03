@@ -5,10 +5,23 @@
 	name = Ben Kuhn
 [core]
 	autocrlf = input
+  excludesfile = ~/code/dotfiles/gitignore_global
 [push]
 	default = simple
 [alias]
 	st = status
 	ci = commit
+	co = checkout
 [github]
 	user = benkuhn
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+	tool = bcomp
+[merge]
+	tool = bc3
+[mergetool]
+	bcomp = trustExitCode
+	bc3 = trustExitCode
