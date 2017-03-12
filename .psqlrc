@@ -1,5 +1,6 @@
+\set QUIET on
 \x auto
 \pset null ¤
 \set HISTCONTROL ignoredups
 \set COMP_KEYWORD_CASE upper
-\pset numericlocale
+\set QUIET off
