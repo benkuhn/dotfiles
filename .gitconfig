@@ -5,13 +5,16 @@
 	name = Ben Kuhn
 [core]
 	autocrlf = input
-  excludesfile = ~/code/dotfiles/gitignore_global
+	excludesfile = ~/code/dotfiles/gitignore_global
 [push]
-	default = simple
+	default = current
 [alias]
 	st = status
 	ci = commit
 	co = checkout
+	dm = diff master...
+	cm = checkout master
+	cob = "!f() { git checkout -b ben/$1; }; f"
 [github]
 	user = benkuhn
 [filter "lfs"]
