@@ -40,6 +40,3 @@ source_all_from_dir ~/.zsh/$HOST_CLEANED
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR="/Users/ben/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
