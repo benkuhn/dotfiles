@@ -2,3 +2,7 @@ GTAGS
 GRTAGS
 GPATH
 .dir-locals.el
+tags
+.vscode
+.idea
+*\~
