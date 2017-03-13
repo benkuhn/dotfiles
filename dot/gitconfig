@@ -5,7 +5,7 @@
 	name = Ben Kuhn
 [core]
 	autocrlf = input
-	excludesfile = ~/code/dotfiles/gitignore_global
+	excludesfile = ~/conf/gitignore_global
 [push]
 	default = current
 [alias]
