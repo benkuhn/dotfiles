@@ -8,6 +8,7 @@ compinit
 export LC_CTYPE=en_US.UTF-8
 export PGDATA=/usr/local/var/postgres
 export PGHOST=localhost
+export LESS="-R"
 
 # help determine whether commands work
 exists () {
