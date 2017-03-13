@@ -1,3 +1,8 @@
 #!/bin/zsh
 
-export PATH="/usr/texbin:$PATH"
+if [ -d "/usr/texbin" ]; then
+    path+=/usr/texbin
+    myconfigs[tex]=installed
+else
+    myconfigs[tex]=not-installed
+fi

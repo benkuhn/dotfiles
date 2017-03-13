@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# fix line editing in case 
+# fix line editing in case
 [[ $EMACS = t ]] && unsetopt zle
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
 autoload colors
@@ -31,5 +31,7 @@ fi
 export EDITOR="emacs -Q"
 WORDCHARS=${WORDCHARS//[\/\.]}
 
-# TODO(ben): make this idempotent so I can reload .zshrc properly
-export PATH=$PATH:~/bin
+export LESS="-R"
+export GREP_OPTIONS="--color=auto"
+
+path+=~/bin

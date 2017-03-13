@@ -1,3 +1,8 @@
 #!/bin/zsh
 
-exists opam && eval `opam config env`
+if exists opam; then
+    eval `opam config env`
+    myconfigs[opam]=installed
+else
+    myconfigs[opam]=not-installed
+fi

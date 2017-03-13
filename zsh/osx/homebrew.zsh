@@ -1,9 +1,14 @@
-# allow Homebrew bins to shadow system bins and manpages
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-# allow Homebrew bins to shadow system bins and manpages
-export MANPATH="/usr/local/bin:/usr/local/sbin:$MANPATH"
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -d /usr/local/bin ]; then
+    # allow Homebrew bins to shadow system bins and manpages
+    path[1,0]=(/usr/local/bin /usr/local/sbin)
+    manpath[1,0]=(/usr/local/share/man)
+    myconfigs[homebrew]=installed
+else
+    myconfigs[homebrew]=not-installed
+fi
 # Use GNU coreutils because they're better than OS X's
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+local GNUBIN_PATH=/usr/local/opt/coreutils/libexec/gnubin
+if [ -d $GNUBIN_PATH ]; then
+    path[1,0]=$GNUBIN_PATH
+    manpath[1,0]=/usr/local/opt/coreutils/libexec/gnuman
+fi

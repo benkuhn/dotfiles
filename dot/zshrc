@@ -5,10 +5,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export LC_CTYPE=en_US.UTF-8
-export PGDATA=/usr/local/var/postgres
-export PGHOST=localhost
-export LESS="-R"
+# "myconfigs" stores whether each config file did its thing
+typeset -A myconfigs
+# de-duplicate path entries
+typeset -U path
 
 # help determine whether commands work
 exists () {
@@ -41,5 +41,6 @@ source_all_from_dir "$ZSH_DIR"
 HOST_CLEANED="$(echo $HOST | sed 's/\..*$//')"
 source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PYTHONPATH
+export MANPATH
+export PATH
