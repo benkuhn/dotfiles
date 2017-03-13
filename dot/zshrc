@@ -20,7 +20,9 @@ is_linux () {
     [[ `uname` == 'Linux' ]]
 }
 
-source ~/conf/setup_paths
+# source ~/conf/setup_paths
+
+ZSH_DIR=~/conf/zsh
 
 source_all_from_dir () {
     for module in $1/*.zsh(N); do
@@ -29,14 +31,14 @@ source_all_from_dir () {
 }
 
 if is_osx; then
-    source_all_from_dir ~/.zsh/osx
+    source_all_from_dir "$ZSH_DIR/osx"
 fi
 if is_linux; then
-    source_all_from_dir ~/.zsh/linux
+    source_all_from_dir "$ZSH_DIR/linux"
 fi
-source_all_from_dir ~/.zsh
-HOST_CLEANED=`echo $HOST | sed 's/\..*$//'`
-source_all_from_dir ~/.zsh/$HOST_CLEANED
+source_all_from_dir "$ZSH_DIR"
+HOST_CLEANED="$(echo $HOST | sed 's/\..*$//')"
+source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
