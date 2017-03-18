@@ -1,0 +1,2 @@
+# bash only reads .bashrc for non-login shells; we want it for all interactive shells
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi

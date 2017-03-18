@@ -1,0 +1,28 @@
+if [[ -n $PS1 ]]; then
+    # interactive-only stuff
+    BASH_COMPLETION_FILE=/usr/local/etc/bash_completion
+    [[ -f $BASH_COMPLETION_FILE ]] && . $BASH_COMPLETION_FILE
+fi
+
+is_osx () {
+    [[ `uname` == 'Darwin' ]]
+}
+is_linux () {
+    [[ `uname` == 'Linux' ]]
+}
+
+BASH_DIR=~/conf/bash
+
+source_all_from_dir () {
+    for module in $1/*.sh; do
+        source $module
+    done
+}
+
+if is_osx; then
+    source_all_from_dir "$BASH_DIR/osx"
+fi
+if is_linux; then
+    source_all_from_dir "$BASH_DIR/linux"
+fi
+source_all_from_dir "$BASH_DIR"

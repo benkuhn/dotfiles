@@ -28,10 +28,6 @@ if [[ $BK_DID_SET_PROMPT != '1' ]]; then
     bk_reset_prompt
 fi
 
-export EDITOR="emacs -Q"
 WORDCHARS=${WORDCHARS//[\/\.]}
-
-export LESS="-R"
-export GREP_OPTIONS="--color=auto"
 
 path+=~/bin
