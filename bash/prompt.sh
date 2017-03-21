@@ -14,8 +14,8 @@ function describe_git_branch {
 }
 function describe_exit_status {
     local LAST_STATUS=$?
-    [[ $? == 0 ]] && return
-    echo "$? "
+    [[ $LAST_STATUS == 0 ]] && return
+    echo "$LAST_STATUS "
     return $LAST_STATUS
 }
 # color escape sequences
