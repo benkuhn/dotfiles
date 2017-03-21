@@ -1,0 +1,6 @@
+# Only require one <TAB> to show completions
+set show-all-if-ambiguous on
+# This is useful for browsing history
+set mark-modified-lines on
+# I don't like readline's pager
+set page-completions off
