@@ -6,6 +6,7 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/conf/gitignore_global
+	pager = less -FRSX
 [push]
 	default = current
 [alias]
