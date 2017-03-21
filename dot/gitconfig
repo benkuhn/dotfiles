@@ -12,9 +12,9 @@
 	st = status
 	ci = commit
 	co = checkout
-	dm = diff master...
 	cm = checkout master
 	cob = "!f() { git checkout -b ben/$1; }; f"
+	db = "!f() { git diff $(git merge-base HEAD ${1:-dev}); }; f"
 [github]
 	user = benkuhn
 [filter "lfs"]

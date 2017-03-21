@@ -4,3 +4,8 @@ set show-all-if-ambiguous on
 set mark-modified-lines on
 # I don't like readline's pager
 set page-completions off
+# allow us to override e.g. ctrl-w with our own special chars
+set bind-tty-special-chars off
+
+# BINDINGS
+Control-w: backward-kill-word
