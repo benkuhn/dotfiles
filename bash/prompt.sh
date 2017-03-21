@@ -19,6 +19,20 @@ function describe_exit_status {
     echo "$LAST_STATUS "
     return $LAST_STATUS
 }
+
+function set_title {
+    local LAST_STATUS=$?
+    local git_repo=$(git rev-parse --show-toplevel 2> /dev/null)
+    if [[ -n $VIRTUAL_ENV ]]; then
+        title "py:$(basename $VIRTUAL_ENV) "
+    elif [[ -n $git_repo ]]; then
+        title "git:$(basename $git_repo) "
+    else
+        title ".../$(basename $PWD) "
+    fi
+    return $LAST_STATUS
+}
+
 # color escape sequences
 cbblue="$(tput bold; tput setaf 4)"
 cbcyan="$(tput bold; tput setaf 6)"
@@ -30,3 +44,4 @@ PS1=' \[$cbblue\]$(describe_git_branch)'  # Git status
 PS1+='\[$cbcyan\]\W '                     # Working directory
 PS1+='\[$cbred\]$(describe_exit_status)'  # $? if nonzero
 PS1+='\[$creset\]\$ '                     # And a $
+PS1+='\[$(set_title)\]'                   # And set the window title
