@@ -1,3 +1,4 @@
+# === USABILITY ===
 # Only require one <TAB> to show completions
 set show-all-if-ambiguous on
 # I don't like readline's pager
@@ -5,5 +6,7 @@ set page-completions off
 # allow us to override e.g. ctrl-w with our own special chars
 set bind-tty-special-chars off
 
-# BINDINGS
+# === BINDINGS ===
+# The default control-w (unix-word-rubout) doesn't stop at slashes, which
+# makes it way too aggressive.
 Control-w: backward-kill-word
