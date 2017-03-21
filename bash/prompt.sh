@@ -1,3 +1,4 @@
+# === DISPLAY LOGIC ===
 function echo_star_if_git_dirty {
     [[ "$(git status --porcelain 2> /dev/null )" != "" ]] && echo "*"
 }
@@ -24,4 +25,8 @@ cbcyan="$(tput bold; tput setaf 6)"
 cbred="$(tput bold; tput setaf 1)"
 creset="$(tput sgr0)"
 
-PS1=' \[$cbblue\]$(describe_git_branch)\[$cbcyan\]\W \[$cbred\]$(describe_exit_status)\[$creset\]\$ '
+# === ACTUAL PROMPT ===
+PS1=' \[$cbblue\]$(describe_git_branch)'  # Git status
+PS1+='\[$cbcyan\]\W '                     # Working directory
+PS1+='\[$cbred\]$(describe_exit_status)'  # $? if nonzero
+PS1+='\[$creset\]\$ '                     # And a $
