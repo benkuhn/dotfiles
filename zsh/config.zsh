@@ -30,4 +30,4 @@ fi
 
 WORDCHARS=${WORDCHARS//[\/\.]}
 
-path+=~/bin
+path+=(~/bin ~/conf/bin)

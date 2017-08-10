@@ -5,10 +5,12 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Set up types
 # "myconfigs" stores whether each config file did its thing
 typeset -A myconfigs
 # de-duplicate path entries
 typeset -U path
+typeset -UT PYTHONPATH pythonpath
 
 # help determine whether commands work
 exists () {
@@ -42,5 +44,4 @@ HOST_CLEANED="$(echo $HOST | sed 's/\..*$//')"
 source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 
 export PYTHONPATH
-export MANPATH
 export PATH

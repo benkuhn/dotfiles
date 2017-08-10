@@ -2,7 +2,7 @@
 local HEROKU_PATH="/usr/local/heroku/bin"
 
 if [ -d $HEROKU_PATH ]; then
-    path+=$HEROKU_PATH
+    path+="$HEROKU_PATH"
     myconfigs[heroku]=installed
 else
     myconfigs[heroku]=not-installed

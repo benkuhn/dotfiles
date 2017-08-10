@@ -1,7 +1,6 @@
 if [ -d /usr/local/bin ]; then
     # allow Homebrew bins to shadow system bins and manpages
-    path[1,0]=(/usr/local/bin /usr/local/sbin)
-    manpath[1,0]=(/usr/local/share/man)
+    path+=(/usr/local/bin /usr/local/sbin)
     myconfigs[homebrew]=installed
 else
     myconfigs[homebrew]=not-installed
