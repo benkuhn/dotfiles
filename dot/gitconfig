@@ -16,6 +16,8 @@
 	cm = checkout master
 	cob = "!f() { git checkout -b ben/$1; }; f"
 	db = "!f() { git diff $(git merge-base HEAD ${1:-dev}); }; f"
+	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\"; }; f"
+	tweak = commit --amend --no-edit
 	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [filter "lfs"]
 	clean = git-lfs clean %f
