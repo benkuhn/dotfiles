@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+case "$1" in
+    default)
+	new_addr="a4:5e:60:e8:3e:e9"
+        ;;
+    "")
+	new_addr=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+	;;
+    *)
+	cmd=$(basename $0)
+        cat <<EOF 
+Usage:
+    $cmd - generate new MAC addr
+    $cmd default - go back to original MAC addr
+EOF
+        exit 1
+	;;
+esac
+echo sudo ifconfig en0 ether $new_addr
