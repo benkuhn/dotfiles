@@ -8,6 +8,11 @@ fi
 # Use GNU coreutils because they're better than OS X's
 local GNUBIN_PATH=/usr/local/opt/coreutils/libexec/gnubin
 if [ -d $GNUBIN_PATH ]; then
-    path[1,0]=$GNUBIN_PATH
-    manpath[1,0]=/usr/local/opt/coreutils/libexec/gnuman
+    path+=$GNUBIN_PATH
+    myconfigs[gnu-coreutils]=installed
+else
+    myconfigs[gnu-coreutils]=not-installed
 fi
+
+# Fuck Homebrew auto update
+export HOMEBREW_NO_AUTO_UPDATE=1
