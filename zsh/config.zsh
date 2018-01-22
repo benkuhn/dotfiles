@@ -32,4 +32,13 @@ fi
 
 WORDCHARS=${WORDCHARS//[\/\.]}
 
+# display directories in light blue, not dark blue
+export LSCOLORS=Exfxcxdxbxegedabagacad
+# use emacs as editor
+export EDITOR='emacs -Q'
+# make less use colors in escape sequences
+export LESS="-R"
+# make grep use colors
+export GREP_OPTIONS="--color=auto"
+
 path+=(~/bin ~/conf/bin)

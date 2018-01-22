@@ -16,3 +16,9 @@ function ssha {
 function scpa {
     scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $@
 }
+
+function e {
+    # run $EDITOR on the given files
+    # word-split it in case $EDITOR includes CLI options
+    ${=EDITOR} "$@"
+}
