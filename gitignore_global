@@ -6,3 +6,4 @@ tags
 .vscode
 .idea
 *\~
+.DS_store

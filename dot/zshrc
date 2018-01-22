@@ -5,12 +5,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Set up types
+# Set up types to help us be idempotent
 # "myconfigs" stores whether each config file did its thing
 typeset -A myconfigs
 # de-duplicate path entries
 typeset -U path
 typeset -UT PYTHONPATH pythonpath
+typeset -U precmd_functions
 
 # help determine whether commands work
 exists () {

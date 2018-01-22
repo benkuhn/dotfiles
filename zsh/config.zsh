@@ -11,7 +11,9 @@ HISTSIZE=100000
 SAVEHIST=100000
 # share history quickly
 setopt share_history
-setopt hist_ignore_dups
+setopt extended_history
+setopt hist_ignore_all_dups
+setopt hist_verify
 setopt autocd
 setopt nomatch
 setopt notify
