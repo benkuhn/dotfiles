@@ -10,6 +10,8 @@
 [push]
 	default = current
 [alias]
+	# I type "git git" way too much :P
+	git = "!f() { git "$@"; }; f"
 	st = status -sb
 	ci = commit
 	co = checkout
