@@ -4,6 +4,5 @@ GPATH
 .dir-locals.el
 tags
 .vscode
-.idea
 *\~
 .DS_store
