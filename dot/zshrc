@@ -12,6 +12,7 @@ typeset -A myconfigs
 typeset -U path
 typeset -UT PYTHONPATH pythonpath
 typeset -U precmd_functions
+typeset -U preexec_functions
 
 # help determine whether commands work
 exists () {
