@@ -11,8 +11,8 @@ typeset -A myconfigs
 # de-duplicate path entries
 typeset -U path
 typeset -UT PYTHONPATH pythonpath
-typeset -U precmd_functions
-typeset -U preexec_functions
+typeset -aU precmd_functions
+typeset -aU preexec_functions
 
 # help determine whether commands work
 exists () {
