@@ -5,7 +5,7 @@
 if exists not_focused && exists send_notification ; then
     maybe_notify_command_finished () {
         local last_command="$(fc -lL -1 | sed -E 's/[0-9]+ +//')"
-        if not_focused && [[ $TTYIDLE -gt 5 ]]; then
+        if [[ $TTYIDLE -gt 5 ]] && not_focused; then
             send_notification "Command finished" "$last_command"
             # we start it in the background and disown so we don't get noisy output or info
             say "command finished" &!

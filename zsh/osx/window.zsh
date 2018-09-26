@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 not_focused () {
+    # if we're not iterm, early exit because the below is a bit slow
+    [[ -v ITERM_PROFILE ]] || return 0
     local _FRONT=$(osascript -e 'tell application "System Events" to return name of first application process whose frontmost is true')
     if [[ $_FRONT != "iTerm2" ]]; then
         return 0
