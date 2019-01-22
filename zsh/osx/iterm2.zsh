@@ -1,4 +1,4 @@
-if [[ -o interactive ]]; then
+if [[ -o interactive && -n "$ITERM_SESSION_ID" ]]; then
   if [ "$TERM" != "screen" -a "$ITERM_SHELL_INTEGRATION_INSTALLED" = "" ]; then
     ITERM_SHELL_INTEGRATION_INSTALLED=Yes
     ITERM2_SHOULD_DECORATE_PROMPT="1"
