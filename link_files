@@ -11,7 +11,7 @@ def main():
         print(DOT_DIR, 'is not a directory')
         exit(1)
     for dotfilename in os.listdir(DOT_DIR):
-        if dotfilename.startswith('.'):
+        if dotfilename.startswith('.') or dotfilename.endswith('~'):
             print('Not moving', dotfilename)
             continue
         dest = os.path.join(HOME_DIR, '.' + dotfilename)

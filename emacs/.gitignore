@@ -1,0 +1,17 @@
+session.*
+recentf
+tramp
+*~
+elpa
+url/cache
+*.desktop
+*.lock
+cookies
+bookmarks
+.org-id-locations
+ac-comphist.dat
+.python-environments/
+eshell/history
+eshell/lastdir
+projectile-bookmarks.eld
+projectile.cache

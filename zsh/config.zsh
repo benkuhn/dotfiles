@@ -36,7 +36,7 @@ WORDCHARS=${WORDCHARS//[\/\.]}
 # display directories in light blue, not dark blue
 export LSCOLORS=Exfxcxdxbxegedabagacad
 # use emacs as editor
-export EDITOR='emacs -Q'
+export EDITOR='emacs'
 # make less use colors in escape sequences
 export LESS="-R"
 # make grep use colors

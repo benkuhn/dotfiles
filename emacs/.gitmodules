@@ -1,0 +1,21 @@
+[submodule "plugins/yasnippet"]
+	path = plugins/yasnippet
+	url = git://github.com/capitaomorte/yasnippet.git
+[submodule "plugins/nxhtml"]
+	path = plugins/nxhtml
+	url = git://github.com/jwiegley/nxhtml.git
+[submodule "plugins/html5-el"]
+	path = plugins/html5-el
+	url = git://github.com/hober/html5-el.git
+[submodule "plugins/tuareg-mode"]
+	path = plugins/tuareg-mode
+	url = git://anonscm.debian.org/pkg-ocaml-maint/packages/tuareg-mode.git
+[submodule "plugins/coffee-mode"]
+	path = plugins/coffee-mode
+	url = https://github.com/defunkt/coffee-mode.git
+[submodule "plugins/scss-mode"]
+	path = plugins/scss-mode
+	url = git://github.com/antonj/scss-mode.git
+[submodule "plugins/haskell-mode"]
+	path = plugins/haskell-mode
+	url = https://github.com/haskell/haskell-mode
