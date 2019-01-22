@@ -206,13 +206,13 @@
   `(eval-after-load ,mode
      '(progn ,@body)))
 
-(add-to-list 'load-path "~/code/conf/emacs")
+(add-to-list 'load-path "~/conf/emacs")
 
 (defun load-library-from-init (libname)
   (message "loading %s" libname)
-  (condition-case nil
+  (condition-case err
       (load-library libname)
-    (error (message "Error loading %s" libname))))
+    (error (message "Error loading %s: %s" libname (error-message-string err)))))
 
 (mapc #'load-library-from-init
       '("funcs"
