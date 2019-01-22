@@ -13,7 +13,6 @@
 (global-set-key (kbd "C-S") 'isearch-forward)
 (global-set-key (kbd "C-R") 'isearch-backward)
 ;; recent file
-(global-set-key (kbd "M-g r") 'helm-recentf)
 ;; qrr is awesome and useful
 (global-set-key "\C-x\C-r" 'query-replace-regexp)
 ;; as is s-i-r
@@ -67,14 +66,6 @@
 
 ;;; helm etc
 (global-set-key (kbd "C-.") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "s-t") 'helm-projectile)
-
-;;; Beeminded files
-(global-unset-key (kbd "C-x C-b"))
-(global-set-key (kbd "C-x C-b C-d") 'new-daily-review)
-(global-set-key (kbd "C-x C-b C-s") 'new-strategic-review)
-(global-set-key (kbd "C-x C-b C-f") 'finish-beeminded-file)
 
 ;;; Fullscreen. This is C-s-f, dunno why emacs doesn't like that syntax
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
