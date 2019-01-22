@@ -1,9 +1,29 @@
+typeset -F SECONDS
+
+typeset -A _profile_chunks
+_profile_chunk_start=$SECONDS
+typeset -Z 3 _profile_chunk_num
+_profile_chunk_num=1
+
+profile () {
+    # set a profile checkpoint
+    local chunkname=$1
+    typeset -F 5 time
+    time=$(($SECONDS-$_profile_chunk_start))
+    _profile_chunks[$_profile_chunk_num-$chunkname]=$time
+    _profile_chunk_start=$SECONDS
+    _profile_chunk_num=$(($_profile_chunk_num+1))
+
+}
+profile profile-setup
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ben/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+profile completion
 
 # Set up types to help us be idempotent
 # "myconfigs" stores whether each config file did its thing
@@ -28,10 +48,12 @@ is_linux () {
 # source ~/conf/setup_paths
 
 ZSH_DIR=~/conf/zsh
+profile misc-setup
 
 source_all_from_dir () {
     for module in $1/*.zsh(N); do
         source $module
+	profile $module
     done
 }
 
@@ -47,3 +69,6 @@ source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 
 export PYTHONPATH
 export PATH
+if (( $SECONDS > 1 )); then
+    echo "Started in ${SECONDS}s. Inspect $_profile_chunks for culprit"
+fi
