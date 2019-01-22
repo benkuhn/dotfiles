@@ -14,24 +14,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(LilyPond-command-alist
-   (quote
-    (("LilyPond" "lilypond %s" "%s" "%l" "View")
-     ("2PS" "lilypond -f ps %s" "%s" "%p" "ViewPS")
-     ("2Gnome" "lilypond -b gnome %s")
-     ("Book" "lilypond-book %x" "%x" "%l" "LaTeX")
-     ("LaTeX" "latex '\\nonstopmode\\input %l'" "%l" "%d" "ViewDVI")
-     ("View" "xdg-open %f")
-     ("ViewPDF" "xdg-open %f")
-     ("ViewPS" "gv --watch %p")
-     ("Midi" "")
-     ("MidiAll" ""))))
- '(TeX-PDF-mode t)
  '(auto-save-default nil)
  '(coffee-tab-width 2)
- '(custom-safe-themes
-   (quote
-    ("0224df2ce3e9ef037ce1d19983d1242977c0bf201e36314ead129c2ba3b2417c" "428b753fd82629cc4553b274a5adb09535b1c6e0e2f31d6831aa433f2b7f46b2" "c2a624c621b05f82d9f2cdac4976a84e6c209d5941bf380d6b5bb421530b750d" "bdd9bfb4579920543a993e572a4f1886cfa161a6856441176e771dee382b0b3b" "5b822be769ef2892d3ea57b94fba25d1da563b9ad4c6a1ddee4d35953fedbf3d" "15bbc0ba40976edd726a0547e9cfafb2425a384273df70df557e564919f8cc2f" "3ad99c7a1efe5d0613510b53ff7a8bd69f7048ea04445239a391ccd0e09b5eb4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e56f1b1c1daec5dbddc50abd00fcd00f6ce4079f4a7f66052cf16d96412a09a9" "c5a044ba03d43a725bd79700087dea813abcb6beb6be08c7eb3303ed90782482" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(desktop-restore-eager 15)
  '(dired-enable-local-variables nil)
  '(dired-guess-shell-alist-user
@@ -94,7 +78,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(linum ((t (:height 80))))
- '(message-cited-text ((t (:foreground "#586e75"))))
  '(org-todo ((t (:inverse-video t))))
  '(variable-pitch ((t (:family "Lucida Grande")))))
 
@@ -103,23 +86,6 @@
 ;;; set the default font face outside Customize so that it sticks when the theme changes
 (set-face-attribute 'default nil :family "Consolas")
 (set-face-attribute 'default nil :height 110)
-
-;; (load "~/.emacs.d/plugins/nxhtml/autostart.el")
-;; HTML5
-;; (add-to-list 'load-path "~/.emacs.d/plugins/html5-el/")
-;; (eval-after-load "rng-loc"
-;;   '(add-to-list 'rng-schema-locating-files "~/.emacs.d/plugins/html5-el/schemas.xml"))
-;; (require 'whattf-dt)
-
-;; Enable directory local variables with remote files. This facilitates both
-;; the (dir-locals-set-class-variables ...)(dir-locals-set-directory-class ...)
-;; and the dir-locals.el approaches.
-;; (defadvice hack-dir-local-variables (around my-remote-dir-local-variables)
-;;   "Allow directory local variables with remote files, by temporarily redefining
-;;      `file-remote-p' to return nil unconditionally."
-;;   (flet ((file-remote-p (&rest) nil))
-;;     ad-do-it))
-;; (ad-activate 'hack-dir-local-variables)
 
 ;;;; better eval-after-load for mode config
 ;; source: http://milkbox.net/note/single-file-master-emacs-configuration/
