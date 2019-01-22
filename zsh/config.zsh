@@ -14,6 +14,7 @@ setopt share_history
 setopt extended_history
 setopt hist_ignore_all_dups
 setopt hist_verify
+setopt histignorespace  # start commands with space if they contain sensitive info
 setopt autocd
 setopt nomatch
 setopt notify
