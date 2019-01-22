@@ -7,20 +7,24 @@
 	autocrlf = input
 	excludesfile = ~/conf/gitignore_global
 	pager = less -FRSX
+[diff]
+	mnemonicPrefix = true
 [push]
 	default = current
 [alias]
 	# I type "git git" way too much :P
 	git = "!f() { git "$@"; }; f"
-	st = status -sb
+	st = status --short --branch
 	ci = commit
 	co = checkout
 	cm = checkout master
 	cob = "!f() { git checkout -b ben/$1; }; f"
-	db = "!f() { git diff $(git merge-base HEAD ${1:-dev}); }; f"
-	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\"; }; f"
+	pr-diff = "!f() { git diff $(git merge-base HEAD ${1:-dev}) ${1:-head} ; }; f"
+	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
 	tweak = commit --amend --no-edit
 	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unpushed = log --branches --not --remotes --no-walk --decorate --oneline
+	prune-merged = "!f() { git branch --merged $1 | grep -v '\\*' | xargs -n 1 git branch -d ; }; f"
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -28,3 +32,5 @@
 	required = true
 [help]
 	autocorrect = 1
+[fetch]
+	prune = true
