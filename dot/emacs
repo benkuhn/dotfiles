@@ -38,8 +38,6 @@
  '(dired-recursive-copies (quote always))
  '(dired-recursive-deletes (quote top))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(global-linum-mode t)
- '(global-undo-tree-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-echo-area-message "bkuhn")
  '(isearch-allow-scroll t)
