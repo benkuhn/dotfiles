@@ -1,3 +1,4 @@
+## Profiling helpers
 typeset -F SECONDS
 
 typeset -A _profile_chunks
@@ -17,13 +18,11 @@ profile () {
 }
 profile profile-setup
 
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ben/.zshrc'
+## Helper for regenerating non-recent files
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-profile completion
+is_stale () {
+    [[ ( ! -f "$1" ) || "$(date +%j)" != $(/usr/bin/stat -f '%Sm' -t '%j' "$1") ]]
+}
 
 # Set up types to help us be idempotent
 # "myconfigs" stores whether each config file did its thing
@@ -45,15 +44,15 @@ is_linux () {
     [[ `uname` == 'Linux' ]]
 }
 
-# source ~/conf/setup_paths
-
 ZSH_DIR=~/conf/zsh
+ZSH_GENERATED_DIR="$ZSH_DIR/generated"
+fpath+=$ZSH_GENERATED_DIR
 profile misc-setup
 
 source_all_from_dir () {
     for module in $1/*.zsh(N); do
         source $module
-	profile $module
+        profile $module
     done
 }
 
@@ -69,6 +68,16 @@ source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 
 export PYTHONPATH
 export PATH
+
+### Compinstall--do this last
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ben/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+profile completion
+
 if (( $SECONDS > 1 )); then
     echo "Started in ${SECONDS}s. Inspect \$_profile_chunks for culprit"
 fi

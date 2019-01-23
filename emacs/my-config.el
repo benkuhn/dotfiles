@@ -17,6 +17,9 @@
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
 
+;;; no f'ing tabs
+(setq-default indent-tabs-mode nil)
+
 ;;; make mark ring usable
 (setq set-mark-command-repeat-pop t)
 
