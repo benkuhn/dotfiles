@@ -70,5 +70,5 @@ source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 export PYTHONPATH
 export PATH
 if (( $SECONDS > 1 )); then
-    echo "Started in ${SECONDS}s. Inspect $_profile_chunks for culprit"
+    echo "Started in ${SECONDS}s. Inspect \$_profile_chunks for culprit"
 fi
