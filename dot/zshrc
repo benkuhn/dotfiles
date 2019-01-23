@@ -69,12 +69,19 @@ source_all_from_dir "$SZH_DIR/$HOST_CLEANED"
 export PYTHONPATH
 export PATH
 
+profile more-misc-setup
+
 ### Compinstall--do this last
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/ben/.zshrc'
+#zstyle :compinstall filename '/home/ben/.zshrc'
 
 autoload -Uz compinit
-compinit
+if is_stale ~/.zcompdump; then
+    compinit
+    zcompile ~/.zcompdump
+else
+    compinit -C
+fi
 # End of lines added by compinstall
 profile completion
 
