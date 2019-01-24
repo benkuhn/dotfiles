@@ -1,6 +1,8 @@
-/* Custom user styles for Safari. Apply with cmd+, -> Advanced -> Style sheet. */
+/* Custom user styles for Safari. Apply with cmd+, -> Advanced -> Style sheet.
+ * Must be removed + reapplied after editing (safari caches it otherwise).
+ */
 
 /* Hide Stack Exchange sidebar */
-.question-page #sidebar {
+body.unified-theme #sidebar {
     display: none;
 }
