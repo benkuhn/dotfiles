@@ -1,0 +1,6 @@
+/* Custom user styles for Safari. Apply with cmd+, -> Advanced -> Style sheet. */
+
+/* Hide Stack Exchange sidebar */
+.question-page #sidebar {
+    display: none;
+}
