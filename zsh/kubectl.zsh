@@ -4,6 +4,11 @@ if which kubectl >/dev/null; then
         echo "generating kubectl completions $fname"
         kubectl completion zsh > "$fname"
     fi
+    KUBECONFIG=''
+    for fname in ~/.kube/config.*; do
+        KUBECONFIG=$KUBECONFIG:$fname
+    done
+    export KUBECONFIG
     myconfigs[kubectl]=installed
 else
     myconfigs[kubectl]=not-installed
