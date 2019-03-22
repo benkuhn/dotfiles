@@ -6,3 +6,9 @@
 body.unified-theme #sidebar {
     display: none;
 }
+
+/* Hide Temp Inbox + Spam link in Gmail Basic */
+a[href*="Temp+Inbox"], a[href*="Temp+Inbox"] + br,
+a[href="?&s=m"] {
+    display: none;
+}
