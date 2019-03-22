@@ -6,16 +6,27 @@ SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
 DOT_DIR = os.path.join(SCRIPT_DIR, 'dot')
 HOME_DIR = os.path.expanduser('~')
 
+def list_recursive(dirname):
+    for entry in os.scandir(dirname):
+        if entry.is_dir():
+            for fname in list_recursive(entry.path):
+                yield os.path.join(entry.name, fname)
+        else:
+            yield entry.name
+
 def main():
     if not os.path.isdir(DOT_DIR):
         print(DOT_DIR, 'is not a directory')
         exit(1)
-    for dotfilename in os.listdir(DOT_DIR):
-        if dotfilename.startswith('.') or dotfilename.endswith('~'):
-            print('Not moving', dotfilename)
+    for path in list_recursive(DOT_DIR):
+        dirname, filename = os.path.split(path)
+        if filename.startswith('.') or filename.endswith('~'):
+            print('Not moving', path)
             continue
-        dest = os.path.join(HOME_DIR, '.' + dotfilename)
-        source = os.path.join(DOT_DIR, dotfilename)
+        dest = os.path.join(HOME_DIR, '.' + path)
+        dest_dir = os.path.dirname(dest)
+        source = os.path.join(DOT_DIR, path)
+        os.makedirs(dest_dir, exist_ok=True)
         print('ln -s', source, dest)
         if os.path.islink(dest):
             os.remove(dest)
