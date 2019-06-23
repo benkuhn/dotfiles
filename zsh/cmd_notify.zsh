@@ -5,7 +5,7 @@
 if exists not_focused && exists send_notification ; then
     maybe_notify_command_finished () {
         # we start it in the background and disown so we don't get noisy output or info
-	maybe_notify_bg &!
+        maybe_notify_bg &!
     }
     maybe_notify_bg () {
         local last_command="$(fc -lL -1 | sed -E 's/[0-9]+ +//')"
