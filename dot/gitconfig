@@ -21,6 +21,7 @@
 	cob = "!f() { git checkout -b ben/$1; }; f"
 	pr-diff = "!f() { git diff $(git merge-base HEAD ${1:-dev}) ${2:-head} ; }; f"
 	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
+	gsed = "!f() { git grep --cached -Il '' | xargs gsed -i \"$@\" ; }; f"
 	tweak = commit --amend --no-edit
 	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	unpushed = log --branches --not --remotes --no-walk --decorate --oneline
