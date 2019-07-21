@@ -2,8 +2,8 @@ not_focused () {
     local EXIT_STATUS
     ( kitty @ --to=unix:/tmp/kitty ls \
         | grep -A 1 '            "id": '$KITTY_WINDOW_ID \
-        | grep true > /dev/null ) \
-        && EXIT_STATUS=$? || true
+        | grep false > /dev/null ) \
+        || EXIT_STATUS=$?
     return $EXIT_STATUS
 }
 
