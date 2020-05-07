@@ -1,8 +1,8 @@
 not_focused () {
     local EXIT_STATUS
     ( kitty @ --to=unix:/tmp/kitty ls \
-        | grep -A 1 '            "id": '$KITTY_WINDOW_ID \
-        | grep false > /dev/null ) \
+        | jq -e ".[].tabs[] | select(.id == $KITTY_WINDOW_ID) | .is_focused | not" \
+        > /dev/null ) \
         || EXIT_STATUS=$?
     return $EXIT_STATUS
 }
@@ -10,7 +10,7 @@ not_focused () {
 send_notification () {
     # TODO
     if exists terminal-notifier; then
-        local APPID=com.googlecode.iTerm2
+        local APPID=net.kovidgoyal.kitty
         terminal-notifier -message "$2" -title "$1" -activate $APPID -sender $APPID
     else
         osascript -e "display notification \"$2\" with title \"$1\""
