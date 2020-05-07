@@ -31,7 +31,7 @@ if [[ $BK_DID_SET_PROMPT != '1' ]]; then
     bk_reset_prompt
 fi
 
-WORDCHARS=${WORDCHARS//[\/\.]}
+WORDCHARS=''
 
 # display directories in light blue, not dark blue
 export LSCOLORS=Exfxcxdxbxegedabagacad
