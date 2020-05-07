@@ -19,11 +19,10 @@
 	ci = commit
 	co = checkout
 	cm = checkout master
-	cd = checkout master
-	cob = "!f() { git checkout -b ben/$1; }; f"
+	cob = "!f() { git checkout -b ben/$1; git push -u; }; f"
 	pr-diff = diff dev...HEAD
 	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
-	gsed = "!f() { git grep --cached -Il '' | xargs gsed -i \"$@\" ; }; f"
+	gsed = "!f() { git grep --cached -Il '' | tr '\\n' '\\000' | xargs -0 gsed -i \"$@\" ; }; f"
 	tweak = commit --amend --no-edit
 	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	unpushed = log --branches --not --remotes --no-walk --decorate --oneline
