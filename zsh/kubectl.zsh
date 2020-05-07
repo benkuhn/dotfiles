@@ -1,8 +1,7 @@
 if which kubectl >/dev/null; then
     local fname=$ZSH_GENERATED_DIR/_kubectl
     if is_stale "$fname"; then
-        echo "generating kubectl completions $fname"
-        kubectl completion zsh > "$fname"
+        kubectl completion zsh > "$fname" &
     fi
     KUBECONFIG=''
     for fname in ~/.kube/config.*; do
