@@ -11,7 +11,7 @@ send_notification () {
     # TODO
     if exists terminal-notifier; then
         local APPID=net.kovidgoyal.kitty
-        terminal-notifier -message "$2" -title "$1" -activate $APPID -sender $APPID
+        terminal-notifier -message "$2" -title "$1" -activate $APPID
     else
         osascript -e "display notification \"$2\" with title \"$1\""
     fi
