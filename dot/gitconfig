@@ -15,11 +15,13 @@
 	# I type "git git" way too much :P
 	git = "!f() { git "$@"; }; f"
 	st = status --short --branch
+	s = status --short --branch
 	ci = commit
 	co = checkout
 	cm = checkout master
+	cd = checkout master
 	cob = "!f() { git checkout -b ben/$1; }; f"
-	pr-diff = "!f() { git diff $(git merge-base HEAD ${1:-dev}) ${2:-head} ; }; f"
+	pr-diff = diff dev...HEAD
 	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
 	gsed = "!f() { git grep --cached -Il '' | xargs gsed -i \"$@\" ; }; f"
 	tweak = commit --amend --no-edit

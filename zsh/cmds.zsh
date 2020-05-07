@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+alias g=git
+
 gitpushbranch () {
     # push a branch to master
     $BRANCH="`git rev-parse --abbrev-ref HEAD`"
