@@ -7,19 +7,31 @@
 	autocrlf = input
 	excludesfile = ~/conf/gitignore_global
 	pager = less -FRSX
+[column]
+	ui = auto
 [diff]
 	mnemonicPrefix = true
 [push]
 	default = current
+[pull]
+	# pulls that cause merges are likely a mistake!
+	ff = only
+[status]
+	short = true
+	branch = true
+[stash]
+	showPatch = true
 [alias]
 	# I type "git git" way too much :P
 	git = "!f() { git "$@"; }; f"
-	st = status --short --branch
-	s = status --short --branch
+	st = status
+	s = status
 	ci = commit
-	co = checkout
+	co = switch
 	cm = checkout master
-	cob = "!f() { git checkout -b ben/$1; git push -u; }; f"
+	dev = checkout dev
+	p = push -u
+	cob = "!f() { git checkout -b ben/$1; }; f"
 	pr-diff = diff dev...HEAD
 	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
 	gsed = "!f() { git grep --cached -Il '' | tr '\\n' '\\000' | xargs -0 gsed -i \"$@\" ; }; f"
