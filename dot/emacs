@@ -1,9 +1,8 @@
 ;;;; Set up packages
 
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 (message "setting custom variables...")
@@ -50,6 +49,7 @@
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+ '(package-selected-packages (quote (cider)))
  '(powerline-display-buffer-size nil)
  '(powerline-display-mule-info nil)
  '(projectile-mode-line (quote (:eval (format " (%s)" (projectile-project-name)))))
