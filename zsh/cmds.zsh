@@ -21,3 +21,6 @@ function e {
     # word-split it in case $EDITOR includes CLI options
     ${=EDITOR} "$@"
 }
+
+alias kcm="kubectl --context mm-ng"
+
