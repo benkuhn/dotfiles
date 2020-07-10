@@ -429,6 +429,6 @@
     ],
     "action": "redirect",
     "active": true,
-    "redirectUrl": "quip:/{pathname}"
+    "redirectUrl": "quip://{pathname:1:100|/\\/.*/}"
   }
 ]
