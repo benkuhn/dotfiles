@@ -23,4 +23,5 @@ function e {
 }
 
 alias kcm="kubectl --context mm-ng"
+alias kcp="kubectl --context prod"
 

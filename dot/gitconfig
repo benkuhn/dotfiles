@@ -31,6 +31,7 @@
 	cm = checkout master
 	dev = checkout dev
 	p = push -u
+	a = add
 	cob = "!f() { git checkout -b ben/$1; }; f"
 	pr-diff = diff dev...HEAD
 	sed = "!f() { git grep --cached -Il '' | xargs sed -i '' \"$@\" ; }; f"
