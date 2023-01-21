@@ -5,6 +5,9 @@
          (propertize "$" 'display (powerline-arrow-left 'bsk/eshell-dir 'default))
          " ")))
 
+; above is broken; this is a hack
+(setq eshell-prompt-function (lambda () ">"))
+
 ;;;; Code to automatically warn when command finishes
 ;; TODO(ben): generalize to other command modes??
 (defun my-eshell-precmd ()

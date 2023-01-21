@@ -34,6 +34,10 @@
 (after 'ggtags
   (define-key ggtags-global-mode-map (kbd "C-o") 'other-window)
   (define-key ggtags-global-mode-map (kbd "o") 'compilation-display-error))
+(define-key compilation-mode-map (kbd "C-o") 'other-window)
+(define-key compilation-mode-map (kbd "o") 'compilation-display-error)
+(define-key grep-mode-map (kbd "C-o") 'other-window)
+(define-key grep-mode-map (kbd "o") 'compilation-display-error)
 
 ;; Better window movement (these keys are currently undefined)
 (global-set-key (kbd "s-<left>") 'windmove-left)

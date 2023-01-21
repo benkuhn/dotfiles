@@ -1,8 +1,7 @@
 ;;;; Set up packages
 
 (require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
 (message "setting custom variables...")
@@ -34,32 +33,32 @@
     (list "\\.zip\\'" "unzip")))
  '(dired-omit-files "^\\..*$")
  '(dired-omit-size-limit nil)
- '(dired-recursive-copies (quote always))
- '(dired-recursive-deletes (quote top))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
+ '(dired-recursive-copies 'always)
+ '(dired-recursive-deletes 'top)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-echo-area-message "bkuhn")
  '(isearch-allow-scroll t)
  '(linum-delay t)
  '(linum-eager nil)
- '(lyqi:midi-backend (quote alsa))
- '(lyqi:prefered-languages (quote (english)))
+ '(lyqi:midi-backend 'alsa)
+ '(lyqi:prefered-languages '(english))
  '(magit-diff-use-overlays nil)
  '(make-backup-files nil)
  '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
- '(package-selected-packages (quote (cider)))
+   '(org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))
+ '(package-selected-packages
+   '(multiple-cursors helm-projectile projectile markdown-mode diminish use-package helm magit cider))
  '(powerline-display-buffer-size nil)
  '(powerline-display-mule-info nil)
- '(projectile-mode-line (quote (:eval (format " (%s)" (projectile-project-name)))))
+ '(projectile-mode-line '(:eval (format " (%s)" (projectile-project-name))))
  '(require-final-newline t)
  '(safe-local-variable-values
-   (quote
-    ((flycheck-pylint-use-symbolic-id quote t)
+   '((projectile-project-run-cmd . "make serve")
+     (flycheck-pylint-use-symbolic-id quote t)
      (flycheck-mode . t)
      (flycheck-pylintrc . "/Users/ben/wave/remit-srv/pylintrc")
-     (flycheck-python-pylint-executable . "/Users/ben/bin/wave-pylint"))))
+     (flycheck-python-pylint-executable . "/Users/ben/bin/wave-pylint")))
  '(save-interprogram-paste-before-kill t)
  '(set-mark-command-repeat-pop t)
  '(smooth-scroll-margin 10)
@@ -75,6 +74,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(fixed-pitch ((t nil)))
  '(linum ((t (:height 80))))
  '(org-todo ((t (:inverse-video t))))
  '(variable-pitch ((t (:family "Lucida Grande")))))
@@ -82,8 +82,8 @@
 (message "forcing default face...")
 
 ;;; set the default font face outside Customize so that it sticks when the theme changes
-(set-face-attribute 'default nil :family "Consolas")
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :family "Source Code Pro")
+(set-face-attribute 'default nil :height 130)
 
 ;;;; better eval-after-load for mode config
 ;; source: http://milkbox.net/note/single-file-master-emacs-configuration/

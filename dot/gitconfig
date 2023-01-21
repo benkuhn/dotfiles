@@ -40,6 +40,7 @@
 	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	unpushed = log --branches --not --remotes --no-walk --decorate --oneline
 	prune-merged = "!f() { git branch --merged $1 | grep -v '\\*' | xargs -n 1 git branch -d ; }; f"
+	checkout = "!echo use switch or restore instead"
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

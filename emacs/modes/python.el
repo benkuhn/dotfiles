@@ -5,10 +5,10 @@
   (setq jedi:setup-keys t)
   (setq jedi:key-goto-definition (kbd "C-c ."))
   (setq jedi:get-in-function-call-delay 0)
-  (add-hook 'python-mode-hook 'jedi:setup)
+  ;(add-hook 'python-mode-hook 'jedi:setup)
 
   ;; Rope mode... see http://milkbox.net/note/installing-pymacs-rope-on-emacs-24/
-  (require 'pymacs)
+  ; (require 'pymacs)
   ; (pymacs-load "ropemacs" "rope-")
 
   (after 'ropemacs
