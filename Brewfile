@@ -4,7 +4,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 brew "ack"
 brew "aria2"
-brew "awscli", link: false
+brew "awscli"
 brew "bash"
 brew "bash-completion"
 brew "cloc"

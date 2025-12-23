@@ -4,7 +4,7 @@ if which kubectl >/dev/null; then
         ( kubectl completion zsh > "$fname" & ) &> /dev/null
     fi
     KUBECONFIG=''
-    for fname in ~/.kube/config.*; do
+    for fname in ~/.kube/config.*(N); do
         KUBECONFIG=$KUBECONFIG:$fname
     done
     KUBECONFIG=${KUBECONFIG:1}

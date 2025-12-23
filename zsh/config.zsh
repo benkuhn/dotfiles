@@ -42,4 +42,7 @@ export LESS="-R"
 # make grep use colors
 export GREP_OPTIONS="--color=auto"
 
-path+=(~/bin ~/conf/bin)
+# ~/bin: random local scripts
+# ~/conf/bin: version controlled local scripts
+# ~/.local/bin: claude code
+path+=(~/bin ~/conf/bin ~/.local/bin)
