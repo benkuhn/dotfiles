@@ -22,3 +22,15 @@ if which pyenv > /dev/null && [[ -d ~/.pyenv ]] ; then
 else
     myconfigs[python-pyenv]=not-installed
 fi
+
+if which python3 > /dev/null; then
+    local python_user_bin=$(python3 -c 'import site; print(site.USER_BASE)')/bin
+    if [[ -d $python_user_bin ]]; then
+        path+=$python_user_bin
+        myconfigs[python-user-bin]=installed
+    else
+        myconfigs[python-user-bin]=not-installed
+    fi
+else
+    myconfigs[python-user-bin]=not-installed
+fi
